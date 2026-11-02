@@ -112,7 +112,8 @@ lib/llm.js         OpenAI 兼容客户端（重试 / 超时 / JSON 修复）
 lib/fallback.js    无模型时的兜底稿
 server.js          HTTP 服务 + 生成编排
 web/               单页界面 + 提词器
-test/              冒烟测试与截图脚本
+test/              冒烟测试
+scripts/           截图工具（开发用）
 ```
 
 ## 测试
@@ -122,6 +123,13 @@ node test/smoke.mjs
 ```
 
 黄金样例：118 字 / 28.6 秒 / A1–A9 全绿。
+
+截图（开发用，需要先起服务）：
+
+```bash
+npm i -D playwright-core          # 只需一次
+node scripts/shots.mjs design     # pack | design | shoot | record | image
+```
 
 ## 视觉
 

@@ -20,11 +20,12 @@ Simplified Chinese. Code comments are Chinese too. Do not "translate for consist
 |---|---|
 | `node server.js` | Serve on <http://127.0.0.1:3030> |
 | `node test/smoke.mjs` | Offline checks. No model, no network. Run this before claiming done |
-| `node test/shot-design.mjs` | Screenshots. Needs a running server + macOS Chrome |
-| `node test/shot-teleprompter.mjs` | Camera flow with Chrome's fake device |
+| `node scripts/shots.mjs design` | Screenshots → `.artifacts/`. Server must be running |
+| `node scripts/shots.mjs record` | Full shoot flow with Chrome's fake camera |
 
-The `shot-*.mjs` scripts hardcode `/Users/vancexin/...` and the Chrome path. They are
-local tooling, not portable tests.
+`scripts/shots.mjs` also takes `pack` (product image), `shoot` (teleprompter still) and
+`image` (a real photo-to-script run, needs the model). It resolves `playwright-core` from
+local or global installs and Chrome from the usual places; `CHROME_PATH` overrides.
 
 ## Architecture
 

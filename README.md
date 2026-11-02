@@ -112,7 +112,8 @@ lib/llm.js         OpenAI-compatible client (retry / timeout / JSON repair)
 lib/fallback.js    deterministic script when there's no model
 server.js          HTTP server + generation orchestration
 web/               single-page UI + teleprompter
-test/              smoke test and screenshot scripts
+test/              smoke test
+scripts/           screenshot tooling (dev only)
 ```
 
 ## Testing
@@ -122,6 +123,13 @@ node test/smoke.mjs
 ```
 
 Golden sample: 118 chars / 28.6s / A1–A9 all green.
+
+Screenshots (dev only, server must be running):
+
+```bash
+npm i -D playwright-core          # once
+node scripts/shots.mjs design     # pack | design | shoot | record | image
+```
 
 ## Design
 

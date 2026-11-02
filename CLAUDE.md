@@ -12,8 +12,8 @@ Claude Code reads this file automatically. Everything durable lives in `AGENTS.m
   under a second.
 - A real generation costs roughly 40–60 seconds and is the only way to validate prompt
   changes. Run it once, read the result, don't loop on it.
-- Screenshots: `node test/shot-design.mjs` writes to `.artifacts/` (gitignored). Requires
-  the server to be up.
+- Screenshots: `node scripts/shots.mjs design` writes to `.artifacts/` (gitignored).
+  Requires the server to be up and `npm i -D playwright-core` once.
 
 ## Things that will waste your time
 
