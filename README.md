@@ -1,127 +1,139 @@
-# 卖点 → 30 秒口播
+# Selling Point → 30-Second Script
 
-输入一个卖点和一群人，输出一条能直接念的 30 秒口播、三条镜头提示、一张合规检查表。
+**English** · [简体中文](README.zh-CN.md)
 
-本地跑，浏览器打开，不用部署。
+Turn one selling point and one audience into a script you can read straight into the camera: five beats with per-line timing, three shot cards, and a compliance report that actually checks something.
 
-## 快速开始
+Runs locally. No deploy, no build step, no dependencies.
+
+![The app](docs/images/app.png)
+
+## Quick start
 
 ```bash
-cp .env.example .env   # 填 LLM_BASE_URL / LLM_MODEL / LLM_API_KEY
+cp .env.example .env    # fill in LLM_BASE_URL / LLM_MODEL / LLM_API_KEY
 node server.js
 ```
 
-打开 <http://127.0.0.1:3030>。
+Open <http://127.0.0.1:3030>.
 
-没填 key 也能跑：会走本地模板兜底稿，页面明确标注「模板兜底」，功能不中断。
+**No API key?** It still runs. You get a template fallback script, clearly labelled as such in the UI. Nothing breaks.
 
-## 它凭什么算"能直接用"
+## The five beats
 
-四把尺子，都能自动检测：
+30 seconds only fits one idea. The structure is fixed so the model can't wander:
 
-| # | 检查 | 判据 |
+| Beat | id | Target | Job |
+|---|---|---|---|
+| Hook | `hook` | 0–3s, ≤ 12 chars | Name the audience, or name what they lose |
+| Pain | `pain` | ~5s | The moment they feel it, in their words |
+| Selling point | `selling_point` | ~11s | One claim, with a number |
+| Proof | `trust` | ~6s | Why believe it |
+| CTA | `cta` | ~4s | Interaction line, then action line |
+
+## The checks
+
+Every deliverable is scored before you see it. Green means publishable; red means the model gets one more shot at that paragraph.
+
+| # | Check | Rule |
 |---|---|---|
-| A1 | 时长 | 27–33 秒。字数 ÷ 4.4 字/秒 + 句末停顿 |
-| A2 | 钩子 | 前 3.5 秒内，且点名人群或制造损失感 |
-| A3 | CTA 双落点 | 末段 ≤ 6.5 秒，互动句 + 行动句齐全 |
-| A4 | 五段结构 | 钩子 / 痛点 / 卖点 / 信任 / CTA |
-| A5 | 可直接朗读 | 分句 ≤ 20 字、无括号、无书面语、无英文缩写 |
-| A6 | 禁用词 | 0 条必删；需举证词单独提示 |
-| A7 | 镜头覆盖 | 3 条首尾相接，覆盖全片 |
-| A9 | 卖点保真 | 模型不得自造数字（"3 分钟"不能变成"2 分钟"） |
+| A1 | Duration | 27–33s. Chars ÷ 4.4/s + 0.25s per sentence break |
+| A2 | Hook | Inside 3.5s, names the audience or a loss |
+| A3 | CTA double-beat | Last block ≤ 6.5s, interaction line **and** action line |
+| A4 | Five beats | All five present |
+| A5 | Readable aloud | Clause ≤ 20 chars, no brackets, no written-Chinese connectives, no Latin acronyms |
+| A6 | Banned words | Zero `block` hits; `review` hits get an evidence prompt |
+| A7 | Shot coverage | Three shots, back to back, covering the whole timeline |
+| A9 | Claim fidelity | No numbers the model invented |
 
-A6 不是"0 命中"：禁用词库分 `block` / `review` 两级。像"纯天然""0 糖""销量领先"禁不掉，只能要求举证。
+A6 is deliberately **not** "zero hits". The lexicon has three dispositions — `block`, `review`, `warn` — because "pure natural" or "0 sugar" can't simply be banned; they have to be substantiated.
 
-## 工作方式
+## How it works
 
 ```
-输入 → 卖点四道闸 → 模型出稿 → 自检 → 不合格的段落退回重写一次 → 交付
+input → selling-point gate → model draft → self-check
+      → only failing beats are sent back for a rewrite → deliver
 ```
 
-- 生成与校验分离：模型只管写，检查器只管判。
-- 定点重写：只把红的那段交给模型改，其他段不动。
-- 客户端断开就中止：不在后台白烧 token；同一时刻只跑一条生成。
+- **Generation and checking are separate.** The model writes; the checker judges.
+- **Targeted rewrite.** Only the red paragraph goes back to the model. Passing paragraphs are untouched.
+- **Abort on disconnect.** Close the tab and the in-flight request is cancelled. One generation at a time, so the gateway never gets hammered.
 
-## 配置
+## Beyond the script
 
-| 变量 | 说明 |
+### Photo → script
+
+Drop in a product photo (click or drag). The browser downscales it to a 768px JPEG (~40KB) before sending.
+
+- Selling point can be empty — the model reads the pack.
+- If you do write one, yours wins; the photo is only context.
+- A9 is the backstop: a number in the script that isn't in your brief or the photo gets flagged.
+
+### Polish
+
+- **Per beat** — the small button on each card. Only that beat changes.
+- **Whole script** — one pass over all five.
+
+The prompt forbids touching numbers or adding claims, and the server re-measures length: if a beat drifts more than 15%, it is reverted and you're told which one. Better a no-op than a silent 30 → 40 second script.
+
+### Teleprompter
+
+"Start shooting" opens a dark, full-screen `/shoot.html`:
+
+- Mirrored camera preview, phone-first
+- 3-2-1 countdown, then recording starts and the script scrolls
+- Scroll speed = text height ÷ script duration, so a 30s script takes 30s to read
+- Space start/stop · ↑↓ speed (live) · Esc exit
+- Download as `.webm`
+
+The prompt text is **not** burned into the video — it's for your eyes only. Camera needs `127.0.0.1` or https.
+
+![Teleprompter](docs/images/teleprompter.png)
+
+## Configuration
+
+| Variable | Meaning |
 |---|---|
-| `LLM_BASE_URL` | 任意 OpenAI 兼容网关，如 `http://host/v1` |
-| `LLM_MODEL` | 部署名 |
-| `LLM_API_KEY` | 密钥，只写进 `.env`（已 gitignore） |
-| `PORT` | 默认 3030 |
+| `LLM_BASE_URL` | Any OpenAI-compatible gateway, e.g. `http://host/v1` |
+| `LLM_MODEL` | Deployment name |
+| `LLM_API_KEY` | Key. Lives in `.env` only, which is gitignored |
+| `PORT` | Defaults to 3030 |
 
-## 目录
+## Layout
 
 ```
-data/banned.json   禁用词库 294 条 · 7 级 · 三级处置
-lib/timing.js      语速与计时模型
-lib/banned.js      归一化 + 最长匹配 + 白名单 + 单字兜底
-lib/check.js       A1–A9 全部检查
-lib/gate.js        卖点四道闸
-lib/prompt.js      生成与返修提示词
-lib/llm.js         OpenAI 兼容客户端（重试 / 超时 / JSON 修复）
-lib/fallback.js    无模型时的兜底稿
-server.js          HTTP 服务 + 生成编排
-web/               单页界面
-test/              冒烟测试与截图脚本
+data/banned.json   294 entries · 7 levels · 3 dispositions
+lib/timing.js      speech-rate and timing model
+lib/banned.js      normalise → longest match → whitelist → single-char audit
+lib/check.js       A1–A9
+lib/gate.js        the four selling-point gates
+lib/prompt.js      generation, repair and polish prompts
+lib/llm.js         OpenAI-compatible client (retry / timeout / JSON repair)
+lib/fallback.js    deterministic script when there's no model
+server.js          HTTP server + generation orchestration
+web/               single-page UI + teleprompter
+test/              smoke test and screenshot scripts
 ```
 
-## 测试
+## Testing
 
 ```bash
-node test/smoke.mjs      # 黄金样例 + 禁词变体
+node test/smoke.mjs
 ```
 
-黄金样例：118 字 / 28.6 秒 / A1–A9 全绿。
+Golden sample: 118 chars / 28.6s / A1–A9 all green.
 
-## 已知限制
+## Design
 
-- 只挡明雷。暗示性表述（"用了它三年没感冒"）机器判不了。
-- 平台规则会变，L5 导流词建议每季度对一次官方规则。
-- 语速是估算，真人口播仍有 ±15% 浮动——所以报区间不报点值。
+Paper, ink, vermilion. A clapperboard, not a SaaS dashboard.
 
-## 两个额外能力
+- Serif headline for Chinese, monospace for every number
+- Paper grain, 44px grid, noise overlay
+- Vermilion appears three times only: the section dot, the timeline, the shoot button
+- Hard borders with 6px offset shadows — sheets pinned to a wall
 
-### 看图写稿
+## Limitations
 
-传一张商品图（点击选择或直接拖进去），客户端先压到 768px JPEG 再发模型，最多约 40KB。模型先从图里读品类、包装上的卖点、规格、配料，再写稿。
-
-- 卖点留空也能量产：图里没有的，模型不许编。
-- 卖点写了就以你为准，图只作为补充。
-- A9 会兜底：稿子里出现图和你都没提过的数字，直接报红。
-
-### 润色
-
-- **单段润色**：每段右上角「润色」，只改这一段，其他段一字不动。
-- **整篇润色**：一次改五段。
-
-润色的硬约束写在提示词里：不改数字、不加功效、每段字数浮动 ≤ 10%。服务端还会再核一遍字数，超了就把那一段退回原稿，并在界面上告诉你哪段被拒了——**宁可改不动，也不让它悄悄把 30 秒写成 40 秒**。
-
-
-## 拍摄模式（v0.3）
-
-稿子底部「● 开始拍摄」→ 新标签页打开 `/shoot.html`，深色沉浸式提词器：
-
-- 摄像头预览全屏，自动镜像（拍摄时看着自然）
-- 点一下圆形按钮，3-2-1 倒计时后开始录，提词同步滚动
-- 滚动速度按稿子的估算时长自动算：30 秒的稿，正好 30 秒走完
-- 快捷键：空格开始/停止，↑↓ 调速（实时生效），Esc 退出
-- 停下后直接预览、下载（webm），可重拍
-
-两点说明：
-
-1. **提词文字不会录进画面**，它只是给你念的。要字幕得后期加。
-2. 摄像头走 `getUserMedia`，只在 `127.0.0.1` 或 https 下可用——本地跑没问题。
-
-
-## 视觉
-
-纸 + 墨 + 朱红，场记板的路子。不是 SaaS 后台。
-
-- 衬线标题（宋体）对撞等宽数字（SF Mono），中文工具里少见的组合
-- 纸纹 + 44px 网格 + 颗粒噪点，三层叠出印刷品的手感
-- 朱红只用在三个地方：句读点、时间轴、开始拍摄——多了就廉价
-- 面板是硬边框 + 6px 偏移投影，像一张贴上去的稿纸
-- 空状态是一块会自己打板的场记板
-
+- Catches explicit violations, not insinuation. "I haven't had a cold in three years" is beyond a word list.
+- Platform rules drift; audit the L5 diversion list quarterly.
+- Timing is an estimate — real speech varies ±15%, which is why we report a range, not a number.
