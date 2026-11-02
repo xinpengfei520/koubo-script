@@ -1,0 +1,4753 @@
+{
+  "version": "2026.10",
+  "updated": "2026-10-31",
+  "counts": {
+    "total": 294,
+    "byLevel": {
+      "L1": 114,
+      "L2": 57,
+      "L3": 17,
+      "L4": 37,
+      "L5": 25,
+      "L6": 15,
+      "L7": 29
+    }
+  },
+  "levels": {
+    "L1": {
+      "name": "绝对化用语",
+      "basis": "广告法 第九条（三）",
+      "action": "block",
+      "penalty": "20 万–100 万元罚款，情节严重可吊销营业执照（第五十七条）"
+    },
+    "L2": {
+      "name": "功效/医疗宣称",
+      "basis": "广告法 第十六、十七条",
+      "action": "block",
+      "penalty": "非医疗品类一律不得涉及疾病治疗功能"
+    },
+    "L3": {
+      "name": "收益承诺",
+      "basis": "广告法 第二十五条",
+      "action": "block",
+      "penalty": "不得明示或暗示保本、无风险、保收益"
+    },
+    "L4": {
+      "name": "虚假/不可验证",
+      "basis": "广告法 第十一、二十八条",
+      "action": "block|review",
+      "penalty": "引证内容须真实并表明出处"
+    },
+    "L5": {
+      "name": "平台导流/诱导",
+      "basis": "各平台社区与电商规则",
+      "action": "block",
+      "penalty": "限流、下架、扣分、封禁"
+    },
+    "L6": {
+      "name": "低俗/迷信",
+      "basis": "广告法 第九条（七）（八）",
+      "action": "block",
+      "penalty": "同第九条"
+    },
+    "L7": {
+      "name": "特殊品类",
+      "basis": "广告法 第十八、二十四、二十六条",
+      "action": "block",
+      "penalty": "按品类单列"
+    }
+  },
+  "whitelist": {
+    "note": "以下组合属于正常表达，扫描时先命中白名单则跳过",
+    "exact": [
+      "最后",
+      "最近",
+      "最初",
+      "最终",
+      "第一次",
+      "第一步",
+      "第一口",
+      "第一天",
+      "最低消费",
+      "最高温度",
+      "最新鲜的（慎）"
+    ],
+    "emotional": [
+      "最怕",
+      "最想",
+      "最需要",
+      "最烦",
+      "最难",
+      "最累"
+    ]
+  },
+  "single_char_audit": {
+    "char": "最",
+    "rule": "去掉白名单与情绪词后仍出现『最』，标记为 L1-low 待人工复核",
+    "level": "L1",
+    "confidence": "low"
+  },
+  "normalize": [
+    "全角转半角、统一大小写",
+    "去掉空格、零宽字符、间隔符（最 好 / 最·好）",
+    "繁转简（最好→最好）",
+    "数字与符号归一（NO.1 / No1 / ＮＯ．１ / 第1 → 第一）",
+    "拼音与谐音变体词典（zui / zui hao / 蕞 / 冣）",
+    "英文缩写展开（yyds / yyds / YYDS）"
+  ],
+  "entries": [
+    {
+      "id": "L1-A01",
+      "word": "最好",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A02",
+      "word": "最佳",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A03",
+      "word": "最强",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A04",
+      "word": "最优",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A05",
+      "word": "最优秀",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A06",
+      "word": "最先进",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A07",
+      "word": "最新",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "今年新款"
+      ]
+    },
+    {
+      "id": "L1-A08",
+      "word": "最高级",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A09",
+      "word": "最高档",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A10",
+      "word": "最便宜",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A11",
+      "word": "最低价",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A12",
+      "word": "最流行",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A13",
+      "word": "最受欢迎",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A14",
+      "word": "最时尚",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A15",
+      "word": "最舒适",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A16",
+      "word": "最赚",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A17",
+      "word": "最大程度",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A18",
+      "word": "最顶级",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A19",
+      "word": "史上最强",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A20",
+      "word": "历史最低价",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A21",
+      "word": "全网最低",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A22",
+      "word": "全网最低价",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A23",
+      "word": "全网最便宜",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-A24",
+      "word": "全球最低",
+      "level": "L1",
+      "category": "绝对化-最高级",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "比较",
+        "挺",
+        "我用下来"
+      ]
+    },
+    {
+      "id": "L1-B01",
+      "word": "第一",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错"
+      ]
+    },
+    {
+      "id": "L1-B02",
+      "word": "中国第一",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B03",
+      "word": "全国第一",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B04",
+      "word": "全球第一",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B05",
+      "word": "全网第一",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B06",
+      "word": "销量第一",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B07",
+      "word": "排名第一",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B08",
+      "word": "行业第一",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B09",
+      "word": "世界第一",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B10",
+      "word": "唯一",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们自己做的"
+      ]
+    },
+    {
+      "id": "L1-B11",
+      "word": "独一无二",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B12",
+      "word": "唯一选择",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B13",
+      "word": "首屈一指",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B14",
+      "word": "数一数二",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B15",
+      "word": "一流",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B16",
+      "word": "顶尖",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B17",
+      "word": "顶级",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "做工扎实"
+      ]
+    },
+    {
+      "id": "L1-B18",
+      "word": "尖端",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B19",
+      "word": "极致",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B20",
+      "word": "极品",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B21",
+      "word": "极佳",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B22",
+      "word": "终极",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B23",
+      "word": "无与伦比",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B24",
+      "word": "空前绝后",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-B25",
+      "word": "登峰造极",
+      "level": "L1",
+      "category": "绝对化-第一/唯一",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "卖得不错",
+        "我们主推的",
+        "同价位里"
+      ]
+    },
+    {
+      "id": "L1-C01",
+      "word": "国家级",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L1-C02",
+      "word": "国家级产品",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C03",
+      "word": "国家免检",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C04",
+      "word": "国家领导人",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C05",
+      "word": "国宴",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C06",
+      "word": "国礼",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C07",
+      "word": "特供",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C08",
+      "word": "专供",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C09",
+      "word": "军供",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C10",
+      "word": "驰名商标",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C11",
+      "word": "央视推荐",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C12",
+      "word": "央视上榜品牌",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C13",
+      "word": "世界级",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C14",
+      "word": "全球级",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C15",
+      "word": "国际级",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C16",
+      "word": "世界领先",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C17",
+      "word": "全球领先",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C18",
+      "word": "遥遥领先",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C19",
+      "word": "行业领先",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C20",
+      "word": "领导者",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C21",
+      "word": "领袖品牌",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C22",
+      "word": "缔造者",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C23",
+      "word": "创领品牌",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C24",
+      "word": "官方指定",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-C25",
+      "word": "唯一指定",
+      "level": "L1",
+      "category": "国家级/权威背书",
+      "law": "广告法 第九条（二）（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉，改讲工艺",
+        "改讲检测报告编号"
+      ]
+    },
+    {
+      "id": "L1-D01",
+      "word": "首个",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-D02",
+      "word": "首款",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-D03",
+      "word": "首发",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-D04",
+      "word": "全国首发",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-D05",
+      "word": "全球首发",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-D06",
+      "word": "首批",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-D07",
+      "word": "首选",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-D08",
+      "word": "独家",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-D09",
+      "word": "独家配方",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-D10",
+      "word": "独家秘方",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-D11",
+      "word": "独创",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-D12",
+      "word": "首创",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-D13",
+      "word": "开创者",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-D14",
+      "word": "鼻祖",
+      "level": "L1",
+      "category": "首/独家",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "我们新出的",
+        "我们自己配的"
+      ]
+    },
+    {
+      "id": "L1-E01",
+      "word": "绝对",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "挺"
+      ]
+    },
+    {
+      "id": "L1-E02",
+      "word": "绝对安全",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E03",
+      "word": "绝对可靠",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E04",
+      "word": "绝对有效",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E05",
+      "word": "绝对无害",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E06",
+      "word": "百分百",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "大部分情况下"
+      ]
+    },
+    {
+      "id": "L1-E07",
+      "word": "100%",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "大部分情况下"
+      ]
+    },
+    {
+      "id": "L1-E08",
+      "word": "百分之百",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E09",
+      "word": "万能",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "一物多用"
+      ]
+    },
+    {
+      "id": "L1-E10",
+      "word": "永久",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "长期"
+      ]
+    },
+    {
+      "id": "L1-E11",
+      "word": "永不复发",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E12",
+      "word": "一劳永逸",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E13",
+      "word": "彻底解决",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E14",
+      "word": "史无前例",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E15",
+      "word": "前无古人",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E16",
+      "word": "前所未有",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E17",
+      "word": "天花板",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E18",
+      "word": "封神",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E19",
+      "word": "yyds",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E20",
+      "word": "无敌",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E21",
+      "word": "王者",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E22",
+      "word": "之王",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E23",
+      "word": "王牌",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E24",
+      "word": "冠军",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "销量不错（需数据）"
+      ]
+    },
+    {
+      "id": "L1-E25",
+      "word": "至尊",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L1-E26",
+      "word": "巅峰",
+      "level": "L1",
+      "category": "绝对化-其他",
+      "law": "广告法 第九条（三）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "基本",
+        "大多数情况"
+      ]
+    },
+    {
+      "id": "L2-F01",
+      "word": "治疗",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F02",
+      "word": "治愈",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F03",
+      "word": "根治",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F04",
+      "word": "根除",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F05",
+      "word": "药到病除",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F06",
+      "word": "包治百病",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F07",
+      "word": "疗效",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F08",
+      "word": "疗程",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F09",
+      "word": "痊愈",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F10",
+      "word": "康复",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F11",
+      "word": "消炎",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F12",
+      "word": "抗炎",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F13",
+      "word": "杀菌",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F14",
+      "word": "止咳",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F15",
+      "word": "化痰",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F16",
+      "word": "降血压",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F17",
+      "word": "降血糖",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F18",
+      "word": "降血脂",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F19",
+      "word": "降尿酸",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F20",
+      "word": "活血",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F21",
+      "word": "化瘀",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F22",
+      "word": "解毒",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F23",
+      "word": "排毒",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F24",
+      "word": "祛湿",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F25",
+      "word": "补肾",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F26",
+      "word": "壮阳",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F27",
+      "word": "丰胸",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F28",
+      "word": "增高",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F29",
+      "word": "生发",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F30",
+      "word": "防脱",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F31",
+      "word": "祛斑",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F32",
+      "word": "美白",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F33",
+      "word": "祛痘",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F34",
+      "word": "修复受损肌肤",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F35",
+      "word": "改善敏感肌",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F36",
+      "word": "调节内分泌",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F37",
+      "word": "增强免疫力",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F38",
+      "word": "改善睡眠",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F39",
+      "word": "缓解疲劳",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F40",
+      "word": "抗衰老",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F41",
+      "word": "抗癌",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F42",
+      "word": "防癌",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F43",
+      "word": "抑制肿瘤",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F44",
+      "word": "提高记忆力",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F45",
+      "word": "无副作用",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F46",
+      "word": "特效",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F47",
+      "word": "神效",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F48",
+      "word": "立竿见影",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F49",
+      "word": "一贴见效",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L2-F50",
+      "word": "三天见效",
+      "level": "L2",
+      "category": "医疗功效",
+      "law": "广告法 第十七条",
+      "action": "block",
+      "scope": [
+        "all",
+        "food",
+        "beauty",
+        "health"
+      ],
+      "replace": [
+        "删掉，改成使用感受",
+        "我用完觉得"
+      ]
+    },
+    {
+      "id": "L3-G01",
+      "word": "稳赚",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G02",
+      "word": "稳赚不赔",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G03",
+      "word": "保本",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G04",
+      "word": "保收益",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G05",
+      "word": "保底",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G06",
+      "word": "零风险",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G07",
+      "word": "无风险",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G08",
+      "word": "躺赚",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G09",
+      "word": "包赚",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G10",
+      "word": "高回报",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G11",
+      "word": "高收益",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G12",
+      "word": "一夜暴富",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G13",
+      "word": "财富自由",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G14",
+      "word": "睡后收入",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G15",
+      "word": "只涨不跌",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G16",
+      "word": "稳赚不亏",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L3-G17",
+      "word": "保本保息",
+      "level": "L3",
+      "category": "金融收益承诺",
+      "law": "广告法 第二十五条",
+      "action": "block",
+      "scope": [
+        "all",
+        "finance"
+      ],
+      "replace": [
+        "过去一年…（历史业绩不代表未来）",
+        "删掉收益表述"
+      ]
+    },
+    {
+      "id": "L4-H01",
+      "word": "销量冠军",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H02",
+      "word": "卖断货",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H03",
+      "word": "断货王",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H04",
+      "word": "抢疯了",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H05",
+      "word": "万人疯抢",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H06",
+      "word": "疯抢",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H07",
+      "word": "再不抢就没了",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H08",
+      "word": "错过就没机会了",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H09",
+      "word": "最后一天",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H10",
+      "word": "仅限今天",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H11",
+      "word": "仅此一天",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H12",
+      "word": "最后一批",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H13",
+      "word": "清仓价",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H14",
+      "word": "史上最低",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H15",
+      "word": "亏本清仓",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H16",
+      "word": "赔本卖",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H17",
+      "word": "白送",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H18",
+      "word": "买一送十",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-H19",
+      "word": "全网爆款",
+      "level": "L4",
+      "category": "虚假-紧迫/价格",
+      "law": "广告法 第二十八条",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉",
+        "改成真实的截止日期"
+      ]
+    },
+    {
+      "id": "L4-I01",
+      "word": "销量领先",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I02",
+      "word": "市场占有率第一",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I03",
+      "word": "纯天然",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "配料表只有 X 样"
+      ]
+    },
+    {
+      "id": "L4-I04",
+      "word": "零添加",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "配料表只有 X 样"
+      ]
+    },
+    {
+      "id": "L4-I05",
+      "word": "无添加",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I06",
+      "word": "0糖",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "每 100g 含糖 X 克（需检测）"
+      ]
+    },
+    {
+      "id": "L4-I07",
+      "word": "0卡",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I08",
+      "word": "专利技术",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I09",
+      "word": "央视报道",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I10",
+      "word": "明星同款",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I11",
+      "word": "三甲医院推荐",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I12",
+      "word": "医生推荐",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I13",
+      "word": "中科院研发",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I14",
+      "word": "诺贝尔奖团队",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I15",
+      "word": "国家级检测",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I16",
+      "word": "出口欧美",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I17",
+      "word": "原装进口",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "补数据来源后可用",
+        "删掉"
+      ]
+    },
+    {
+      "id": "L4-I18",
+      "word": "有机",
+      "level": "L4",
+      "category": "需举证（非直接违法）",
+      "law": "广告法 第十一条（引证需出处）",
+      "action": "review",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "有有机认证再讲"
+      ]
+    },
+    {
+      "id": "L5-J01",
+      "word": "加微信",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-J02",
+      "word": "加V",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-J03",
+      "word": "加vx",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-J04",
+      "word": "微信号",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-J05",
+      "word": "私信我",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-J06",
+      "word": "私我",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-J07",
+      "word": "评论区扣1",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-J08",
+      "word": "扣1",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-J09",
+      "word": "主页有惊喜",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-J10",
+      "word": "点击链接",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-J11",
+      "word": "扫码",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-J12",
+      "word": "二维码",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-J13",
+      "word": "站外",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-J14",
+      "word": "代购",
+      "level": "L5",
+      "category": "平台导流",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "主页看看",
+        "店铺里"
+      ]
+    },
+    {
+      "id": "L5-K01",
+      "word": "点赞过万",
+      "level": "L5",
+      "category": "诱导互动/交易",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "删掉",
+        "改成自然互动"
+      ]
+    },
+    {
+      "id": "L5-K02",
+      "word": "转发抽奖",
+      "level": "L5",
+      "category": "诱导互动/交易",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "删掉",
+        "改成自然互动"
+      ]
+    },
+    {
+      "id": "L5-K03",
+      "word": "关注领福利",
+      "level": "L5",
+      "category": "诱导互动/交易",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "删掉",
+        "改成自然互动"
+      ]
+    },
+    {
+      "id": "L5-K04",
+      "word": "好评返现",
+      "level": "L5",
+      "category": "诱导互动/交易",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "删掉",
+        "改成自然互动"
+      ]
+    },
+    {
+      "id": "L5-K05",
+      "word": "刷单",
+      "level": "L5",
+      "category": "诱导互动/交易",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "删掉",
+        "改成自然互动"
+      ]
+    },
+    {
+      "id": "L5-K06",
+      "word": "免单",
+      "level": "L5",
+      "category": "诱导互动/交易",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "删掉",
+        "改成自然互动"
+      ]
+    },
+    {
+      "id": "L5-K07",
+      "word": "返现",
+      "level": "L5",
+      "category": "诱导互动/交易",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "删掉",
+        "改成自然互动"
+      ]
+    },
+    {
+      "id": "L5-K08",
+      "word": "秒杀",
+      "level": "L5",
+      "category": "诱导互动/交易",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "限时价"
+      ]
+    },
+    {
+      "id": "L5-K09",
+      "word": "闭眼入",
+      "level": "L5",
+      "category": "诱导互动/交易",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "我用着顺手"
+      ]
+    },
+    {
+      "id": "L5-K10",
+      "word": "必买",
+      "level": "L5",
+      "category": "诱导互动/交易",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "删掉",
+        "改成自然互动"
+      ]
+    },
+    {
+      "id": "L5-K11",
+      "word": "强推",
+      "level": "L5",
+      "category": "诱导互动/交易",
+      "law": "平台规则",
+      "action": "block",
+      "scope": [
+        "douyin",
+        "xhs",
+        "kuaishou"
+      ],
+      "replace": [
+        "删掉",
+        "改成自然互动"
+      ]
+    },
+    {
+      "id": "L6-L01",
+      "word": "算命",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L02",
+      "word": "看相",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L03",
+      "word": "转运",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L04",
+      "word": "开光",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L05",
+      "word": "保佑",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L06",
+      "word": "旺财",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L07",
+      "word": "辟邪",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L08",
+      "word": "化太岁",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L09",
+      "word": "逢凶化吉",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L10",
+      "word": "时来运转",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L11",
+      "word": "招财进宝",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L12",
+      "word": "风水",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L13",
+      "word": "改运",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L14",
+      "word": "命中注定",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L6-L15",
+      "word": "玄学",
+      "level": "L6",
+      "category": "低俗/迷信",
+      "law": "广告法 第九条（七）（八）",
+      "action": "block",
+      "scope": [
+        "all"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L7-M01",
+      "word": "替代药物",
+      "level": "L7",
+      "category": "保健食品",
+      "law": "广告法 第十八条",
+      "action": "block",
+      "scope": [
+        "health"
+      ],
+      "replace": [
+        "删掉",
+        "改成配料说明"
+      ]
+    },
+    {
+      "id": "L7-M02",
+      "word": "不用吃药",
+      "level": "L7",
+      "category": "保健食品",
+      "law": "广告法 第十八条",
+      "action": "block",
+      "scope": [
+        "health"
+      ],
+      "replace": [
+        "删掉",
+        "改成配料说明"
+      ]
+    },
+    {
+      "id": "L7-M03",
+      "word": "降三高",
+      "level": "L7",
+      "category": "保健食品",
+      "law": "广告法 第十八条",
+      "action": "block",
+      "scope": [
+        "health"
+      ],
+      "replace": [
+        "删掉",
+        "改成配料说明"
+      ]
+    },
+    {
+      "id": "L7-M04",
+      "word": "治疗三高",
+      "level": "L7",
+      "category": "保健食品",
+      "law": "广告法 第十八条",
+      "action": "block",
+      "scope": [
+        "health"
+      ],
+      "replace": [
+        "删掉",
+        "改成配料说明"
+      ]
+    },
+    {
+      "id": "L7-M05",
+      "word": "排毒养颜",
+      "level": "L7",
+      "category": "保健食品",
+      "law": "广告法 第十八条",
+      "action": "block",
+      "scope": [
+        "health"
+      ],
+      "replace": [
+        "删掉",
+        "改成配料说明"
+      ]
+    },
+    {
+      "id": "L7-M06",
+      "word": "增强抵抗力",
+      "level": "L7",
+      "category": "保健食品",
+      "law": "广告法 第十八条",
+      "action": "block",
+      "scope": [
+        "health"
+      ],
+      "replace": [
+        "删掉",
+        "改成配料说明"
+      ]
+    },
+    {
+      "id": "L7-M07",
+      "word": "包治",
+      "level": "L7",
+      "category": "保健食品",
+      "law": "广告法 第十八条",
+      "action": "block",
+      "scope": [
+        "health"
+      ],
+      "replace": [
+        "删掉",
+        "改成配料说明"
+      ]
+    },
+    {
+      "id": "L7-N01",
+      "word": "包过",
+      "level": "L7",
+      "category": "教育培训",
+      "law": "广告法 第二十四条",
+      "action": "block",
+      "scope": [
+        "edu"
+      ],
+      "replace": [
+        "删掉",
+        "改成课程内容"
+      ]
+    },
+    {
+      "id": "L7-N02",
+      "word": "保过",
+      "level": "L7",
+      "category": "教育培训",
+      "law": "广告法 第二十四条",
+      "action": "block",
+      "scope": [
+        "edu"
+      ],
+      "replace": [
+        "删掉",
+        "改成课程内容"
+      ]
+    },
+    {
+      "id": "L7-N03",
+      "word": "押题",
+      "level": "L7",
+      "category": "教育培训",
+      "law": "广告法 第二十四条",
+      "action": "block",
+      "scope": [
+        "edu"
+      ],
+      "replace": [
+        "删掉",
+        "改成课程内容"
+      ]
+    },
+    {
+      "id": "L7-N04",
+      "word": "命题组",
+      "level": "L7",
+      "category": "教育培训",
+      "law": "广告法 第二十四条",
+      "action": "block",
+      "scope": [
+        "edu"
+      ],
+      "replace": [
+        "删掉",
+        "改成课程内容"
+      ]
+    },
+    {
+      "id": "L7-N05",
+      "word": "内部渠道",
+      "level": "L7",
+      "category": "教育培训",
+      "law": "广告法 第二十四条",
+      "action": "block",
+      "scope": [
+        "edu"
+      ],
+      "replace": [
+        "删掉",
+        "改成课程内容"
+      ]
+    },
+    {
+      "id": "L7-N06",
+      "word": "保分",
+      "level": "L7",
+      "category": "教育培训",
+      "law": "广告法 第二十四条",
+      "action": "block",
+      "scope": [
+        "edu"
+      ],
+      "replace": [
+        "删掉",
+        "改成课程内容"
+      ]
+    },
+    {
+      "id": "L7-N07",
+      "word": "保录",
+      "level": "L7",
+      "category": "教育培训",
+      "law": "广告法 第二十四条",
+      "action": "block",
+      "scope": [
+        "edu"
+      ],
+      "replace": [
+        "删掉",
+        "改成课程内容"
+      ]
+    },
+    {
+      "id": "L7-N08",
+      "word": "名校保送",
+      "level": "L7",
+      "category": "教育培训",
+      "law": "广告法 第二十四条",
+      "action": "block",
+      "scope": [
+        "edu"
+      ],
+      "replace": [
+        "删掉",
+        "改成课程内容"
+      ]
+    },
+    {
+      "id": "L7-N09",
+      "word": "七天速成",
+      "level": "L7",
+      "category": "教育培训",
+      "law": "广告法 第二十四条",
+      "action": "block",
+      "scope": [
+        "edu"
+      ],
+      "replace": [
+        "删掉",
+        "改成课程内容"
+      ]
+    },
+    {
+      "id": "L7-N10",
+      "word": "零基础月入过万",
+      "level": "L7",
+      "category": "教育培训",
+      "law": "广告法 第二十四条",
+      "action": "block",
+      "scope": [
+        "edu"
+      ],
+      "replace": [
+        "删掉",
+        "改成课程内容"
+      ]
+    },
+    {
+      "id": "L7-N11",
+      "word": "学完就赚钱",
+      "level": "L7",
+      "category": "教育培训",
+      "law": "广告法 第二十四条",
+      "action": "block",
+      "scope": [
+        "edu"
+      ],
+      "replace": [
+        "删掉",
+        "改成课程内容"
+      ]
+    },
+    {
+      "id": "L7-O01",
+      "word": "升值",
+      "level": "L7",
+      "category": "房产",
+      "law": "广告法 第二十六条",
+      "action": "block",
+      "scope": [
+        "realestate"
+      ],
+      "replace": [
+        "删掉",
+        "改成规划描述"
+      ]
+    },
+    {
+      "id": "L7-O02",
+      "word": "投资回报",
+      "level": "L7",
+      "category": "房产",
+      "law": "广告法 第二十六条",
+      "action": "block",
+      "scope": [
+        "realestate"
+      ],
+      "replace": [
+        "删掉",
+        "改成规划描述"
+      ]
+    },
+    {
+      "id": "L7-O03",
+      "word": "稳涨",
+      "level": "L7",
+      "category": "房产",
+      "law": "广告法 第二十六条",
+      "action": "block",
+      "scope": [
+        "realestate"
+      ],
+      "replace": [
+        "删掉",
+        "改成规划描述"
+      ]
+    },
+    {
+      "id": "L7-O04",
+      "word": "学区房",
+      "level": "L7",
+      "category": "房产",
+      "law": "广告法 第二十六条",
+      "action": "block",
+      "scope": [
+        "realestate"
+      ],
+      "replace": [
+        "删掉",
+        "改成规划描述"
+      ]
+    },
+    {
+      "id": "L7-O05",
+      "word": "零首付",
+      "level": "L7",
+      "category": "房产",
+      "law": "广告法 第二十六条",
+      "action": "block",
+      "scope": [
+        "realestate"
+      ],
+      "replace": [
+        "删掉",
+        "改成规划描述"
+      ]
+    },
+    {
+      "id": "L7-O06",
+      "word": "买房送户口",
+      "level": "L7",
+      "category": "房产",
+      "law": "广告法 第二十六条",
+      "action": "block",
+      "scope": [
+        "realestate"
+      ],
+      "replace": [
+        "删掉",
+        "改成规划描述"
+      ]
+    },
+    {
+      "id": "L7-O07",
+      "word": "地铁口",
+      "level": "L7",
+      "category": "房产",
+      "law": "广告法 第二十六条",
+      "action": "block",
+      "scope": [
+        "realestate"
+      ],
+      "replace": [
+        "删掉",
+        "改成规划描述"
+      ]
+    },
+    {
+      "id": "L7-P01",
+      "word": "替代母乳",
+      "level": "L7",
+      "category": "母婴/食品",
+      "law": "广告法 第二十条",
+      "action": "block",
+      "scope": [
+        "baby",
+        "food"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L7-P02",
+      "word": "益智",
+      "level": "L7",
+      "category": "母婴/食品",
+      "law": "广告法 第二十条",
+      "action": "block",
+      "scope": [
+        "baby",
+        "food"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L7-P03",
+      "word": "长高",
+      "level": "L7",
+      "category": "母婴/食品",
+      "law": "广告法 第二十条",
+      "action": "block",
+      "scope": [
+        "baby",
+        "food"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L7-P04",
+      "word": "促进大脑发育",
+      "level": "L7",
+      "category": "母婴/食品",
+      "law": "广告法 第二十条",
+      "action": "block",
+      "scope": [
+        "baby",
+        "food"
+      ],
+      "replace": [
+        "删掉"
+      ]
+    },
+    {
+      "id": "L2-Q01",
+      "word": "养胃",
+      "level": "L2",
+      "category": "食品功效化",
+      "law": "广告法 第十七条",
+      "action": "review",
+      "scope": [
+        "food"
+      ],
+      "replace": [
+        "改成配料与口感描述"
+      ]
+    },
+    {
+      "id": "L2-Q02",
+      "word": "护肝",
+      "level": "L2",
+      "category": "食品功效化",
+      "law": "广告法 第十七条",
+      "action": "review",
+      "scope": [
+        "food"
+      ],
+      "replace": [
+        "改成配料与口感描述"
+      ]
+    },
+    {
+      "id": "L2-Q03",
+      "word": "降火",
+      "level": "L2",
+      "category": "食品功效化",
+      "law": "广告法 第十七条",
+      "action": "review",
+      "scope": [
+        "food"
+      ],
+      "replace": [
+        "改成配料与口感描述"
+      ]
+    },
+    {
+      "id": "L2-Q04",
+      "word": "祛湿气",
+      "level": "L2",
+      "category": "食品功效化",
+      "law": "广告法 第十七条",
+      "action": "review",
+      "scope": [
+        "food"
+      ],
+      "replace": [
+        "改成配料与口感描述"
+      ]
+    },
+    {
+      "id": "L2-Q05",
+      "word": "补气血",
+      "level": "L2",
+      "category": "食品功效化",
+      "law": "广告法 第十七条",
+      "action": "review",
+      "scope": [
+        "food"
+      ],
+      "replace": [
+        "改成配料与口感描述"
+      ]
+    },
+    {
+      "id": "L2-Q06",
+      "word": "调理",
+      "level": "L2",
+      "category": "食品功效化",
+      "law": "广告法 第十七条",
+      "action": "review",
+      "scope": [
+        "food"
+      ],
+      "replace": [
+        "改成配料与口感描述"
+      ]
+    },
+    {
+      "id": "L2-Q07",
+      "word": "食疗",
+      "level": "L2",
+      "category": "食品功效化",
+      "law": "广告法 第十七条",
+      "action": "review",
+      "scope": [
+        "food"
+      ],
+      "replace": [
+        "改成配料与口感描述"
+      ]
+    }
+  ]
+}

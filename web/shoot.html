@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>拍摄 · 提词器</title>
+<link rel="stylesheet" href="/shoot.css" />
+</head>
+<body>
+<div id="stage">
+  <video id="cam" autoplay playsinline muted></video>
+  <div class="shade"></div>
+
+  <div class="prompter" id="prompter">
+    <div class="scroll" id="scroll"></div>
+  </div>
+  <div class="eyeline"></div>
+
+  <div class="topbar">
+    <span class="rec-dot" id="recDot" hidden></span>
+    <span class="timer" id="timer">00:00</span>
+    <span class="spacer"></span>
+    <span class="pill" id="camState">摄像头准备中</span>
+  </div>
+
+  <div class="countdown" id="countdown" hidden><span id="countNum">3</span></div>
+
+  <div class="controls" id="controls">
+    <div class="tools">
+      <button data-act="speed-" title="慢一点">− 速</button>
+      <button data-act="speed+" title="快一点">速 +</button>
+      <button data-act="font-" title="字号小">A−</button>
+      <button data-act="font+" title="字号大">A+</button>
+      <button data-act="reset" title="回到开头">重来</button>
+      <button data-act="exit" title="退出">退出</button>
+    </div>
+    <button class="shoot" id="recBtn" title="开始录制（空格）"><span class="dot"></span></button>
+    <div class="tip" id="tip">空格 开始 / 暂停 · ↑↓ 调速 · Esc 退出</div>
+  </div>
+
+  <div class="result" id="result" hidden>
+    <div class="result-card">
+      <h2>录制完成</h2>
+      <video id="playback" controls playsinline></video>
+      <div class="result-ops">
+        <a id="download" class="primary" download>下载视频</a>
+        <button id="again">重拍</button>
+        <button id="closeBtn">回到稿子</button>
+      </div>
+      <p class="fine">提词文字不会被录进画面，只给你念。</p>
+    </div>
+  </div>
+
+  <div class="err" id="err" hidden></div>
+</div>
+<script src="/shoot.js"></script>
+</body>
+</html>

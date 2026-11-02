@@ -1,0 +1,267 @@
+{
+ "segments": [
+  {
+   "id": "hook",
+   "label": "钩子",
+   "text": "加班到十点的你又在挨饿吗？",
+   "chars": 12,
+   "punct": 1,
+   "strong": 1,
+   "seconds": 3,
+   "min": 2.6,
+   "max": 3.3,
+   "start": 0,
+   "end": 3
+  },
+  {
+   "id": "pain",
+   "label": "痛点",
+   "text": "点外卖等大半天送来早凉了，下班已经很累哪有力气自己做饭？",
+   "chars": 26,
+   "punct": 2,
+   "strong": 1,
+   "seconds": 6.2,
+   "min": 5.4,
+   "max": 6.8,
+   "start": 3,
+   "end": 9.2
+  },
+  {
+   "id": "selling_point",
+   "label": "卖点",
+   "text": "快尝尝这包番茄牛腩鲜煮面！水开下锅只要三分钟，非油炸面饼特别清爽，一百二十克一人份正好吃饱。",
+   "chars": 42,
+   "punct": 4,
+   "strong": 2,
+   "seconds": 10,
+   "min": 8.8,
+   "max": 11.1,
+   "start": 9.2,
+   "end": 19.2
+  },
+  {
+   "id": "trust",
+   "label": "信任",
+   "text": "我冰箱里囤了好多盒，深夜来上一碗浓郁热汤，疲惫瞬间全没了，特别安心。",
+   "chars": 30,
+   "punct": 4,
+   "strong": 1,
+   "seconds": 7.1,
+   "min": 6.2,
+   "max": 7.8,
+   "start": 19.2,
+   "end": 26.3
+  },
+  {
+   "id": "cta",
+   "label": "CTA",
+   "text": "你今晚饿不饿？直接戳左下角带走！",
+   "chars": 14,
+   "punct": 2,
+   "strong": 2,
+   "seconds": 3.7,
+   "min": 3.2,
+   "max": 4.1,
+   "start": 26.3,
+   "end": 30
+  }
+ ],
+ "shots": [
+  {
+   "no": 1,
+   "start": 0,
+   "end": 9,
+   "framing": "中景",
+   "visual": "独居女生下班后疲惫推开家门，把包扔在沙发上揉肚子",
+   "action": "女主瘫坐在沙发上翻看手机外卖界面，叹气摇了摇头",
+   "subtitle": "加班太累不想做饭"
+  },
+  {
+   "no": 2,
+   "start": 9,
+   "end": 19,
+   "framing": "特写",
+   "visual": "厨房台面上红白包装的番茄牛腩鲜煮面，旁边小锅水沸腾升起热气",
+   "action": "撕开包装将面饼和番茄汤料滑入沸水中，计时器显示三分钟倒计时",
+   "subtitle": "三分钟煮好热汤面"
+  },
+  {
+   "no": 3,
+   "start": 19,
+   "end": 30,
+   "framing": "近景",
+   "visual": "女主捧着热气腾腾的番茄牛腩面吸溜入口，脸上露出治愈满足神情",
+   "action": "女主端起碗喝下一口浓汤，另一只手指向屏幕左下方",
+   "subtitle": "戳左下角直接带走"
+  }
+ ],
+ "report": {
+  "segments": [
+   {
+    "id": "hook",
+    "label": "钩子",
+    "text": "加班到十点的你又在挨饿吗？",
+    "chars": 12,
+    "punct": 1,
+    "strong": 1,
+    "seconds": 3,
+    "min": 2.6,
+    "max": 3.3,
+    "start": 0,
+    "end": 3
+   },
+   {
+    "id": "pain",
+    "label": "痛点",
+    "text": "点外卖等大半天送来早凉了，下班已经很累哪有力气自己做饭？",
+    "chars": 26,
+    "punct": 2,
+    "strong": 1,
+    "seconds": 6.2,
+    "min": 5.4,
+    "max": 6.8,
+    "start": 3,
+    "end": 9.2
+   },
+   {
+    "id": "selling_point",
+    "label": "卖点",
+    "text": "快尝尝这包番茄牛腩鲜煮面！水开下锅只要三分钟，非油炸面饼特别清爽，一百二十克一人份正好吃饱。",
+    "chars": 42,
+    "punct": 4,
+    "strong": 2,
+    "seconds": 10,
+    "min": 8.8,
+    "max": 11.1,
+    "start": 9.2,
+    "end": 19.2
+   },
+   {
+    "id": "trust",
+    "label": "信任",
+    "text": "我冰箱里囤了好多盒，深夜来上一碗浓郁热汤，疲惫瞬间全没了，特别安心。",
+    "chars": 30,
+    "punct": 4,
+    "strong": 1,
+    "seconds": 7.1,
+    "min": 6.2,
+    "max": 7.8,
+    "start": 19.2,
+    "end": 26.3
+   },
+   {
+    "id": "cta",
+    "label": "CTA",
+    "text": "你今晚饿不饿？直接戳左下角带走！",
+    "chars": 14,
+    "punct": 2,
+    "strong": 2,
+    "seconds": 3.7,
+    "min": 3.2,
+    "max": 4.1,
+    "start": 26.3,
+    "end": 30
+   }
+  ],
+  "total_chars": 124,
+  "seconds": 30,
+  "range": {
+   "min": 26.2,
+   "max": 33.1
+  },
+  "items": [
+   {
+    "id": "A1",
+    "name": "时长",
+    "ok": true,
+    "detail": "124 字 ≈ 30s（区间 26.2–33.1s）"
+   },
+   {
+    "id": "A2",
+    "name": "钩子",
+    "ok": true,
+    "detail": "钩子在 0–3s：加班到十点的你又在挨饿吗？"
+   },
+   {
+    "id": "A3",
+    "name": "CTA 双落点",
+    "ok": true,
+    "detail": "3.7s；互动句有，行动句有"
+   },
+   {
+    "id": "A4",
+    "name": "五段结构",
+    "ok": true,
+    "detail": "5/5 段有内容"
+   },
+   {
+    "id": "A5",
+    "name": "可直接朗读",
+    "ok": true,
+    "detail": "无长句、无括号、无书面语"
+   },
+   {
+    "id": "A6",
+    "name": "禁用词",
+    "ok": true,
+    "detail": "0 条必删"
+   },
+   {
+    "id": "A7",
+    "name": "镜头覆盖",
+    "ok": true,
+    "detail": "3 条，衔接差 0.0/0.0s，收尾差 0.0s"
+   },
+   {
+    "id": "A9",
+    "name": "卖点保真",
+    "ok": true,
+    "detail": "没有模型自造的数字"
+   }
+  ],
+  "pass": true,
+  "banned": {
+   "hits": [],
+   "blocked": 0,
+   "review": 0,
+   "warn": 0
+  },
+  "readability": [],
+  "claims": [],
+  "shots": [
+   {
+    "no": 1,
+    "start": 0,
+    "end": 9,
+    "framing": "中景",
+    "visual": "独居女生下班后疲惫推开家门，把包扔在沙发上揉肚子",
+    "action": "女主瘫坐在沙发上翻看手机外卖界面，叹气摇了摇头",
+    "subtitle": "加班太累不想做饭"
+   },
+   {
+    "no": 2,
+    "start": 9,
+    "end": 19,
+    "framing": "特写",
+    "visual": "厨房台面上红白包装的番茄牛腩鲜煮面，旁边小锅水沸腾升起热气",
+    "action": "撕开包装将面饼和番茄汤料滑入沸水中，计时器显示三分钟倒计时",
+    "subtitle": "三分钟煮好热汤面"
+   },
+   {
+    "no": 3,
+    "start": 19,
+    "end": 30,
+    "framing": "近景",
+    "visual": "女主捧着热气腾腾的番茄牛腩面吸溜入口，脸上露出治愈满足神情",
+    "action": "女主端起碗喝下一口浓汤，另一只手指向屏幕左下方",
+    "subtitle": "戳左下角直接带走"
+   }
+  ],
+  "conclusion": "可发布",
+  "meta": {
+   "source": "llm"
+  }
+ },
+ "source": "llm",
+ "vision": true
+}

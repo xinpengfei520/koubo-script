@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>卖点 → 30 秒口播</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="logo">口</div>
+    <div>
+      <h1>卖点 → 30 秒口播</h1>
+      <p class="sub">一个卖点，一群人，一条能直接念的稿</p>
+    </div>
+  </div>
+  <div class="meta">
+    <span class="pill" id="metaBanned">词库加载中</span>
+    <span class="pill" id="metaModel">模型检测中</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="panel form">
+    <h2>输入</h2>
+
+    <div class="field">
+      <span class="lab">商品图<em>选填</em></span>
+      <div class="drop" id="drop">
+        <input type="file" id="file" accept="image/*" hidden />
+        <div class="drop-hint" id="dropHint">
+          <span class="drop-icon">＋</span>
+          <b>点这里，或拖一张商品图进来</b>
+          <small>本地压缩后再发模型，不会存盘</small>
+        </div>
+        <div class="drop-preview" id="dropPreview" hidden>
+          <img id="preview" alt="" />
+          <div class="drop-ops">
+            <span id="imgSize" class="mini-text"></span>
+            <button type="button" id="clearImg" class="mini">移除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <label class="field">
+      <span class="lab">卖点<em>选填</em></span>
+      <textarea id="sp" rows="3" placeholder="例：水开下锅 3 分钟煮好一碗面"></textarea>
+      <span class="hint">不传图就必须写；传了图可以留空，模型从图里判断。写了就以你为准。</span>
+    </label>
+
+    <label class="field">
+      <span class="lab">人群<em>必填</em></span>
+      <textarea id="audience" rows="2" placeholder="例：加班到十点、不想洗锅的独居白领"></textarea>
+      <span class="hint">谁 + 什么时候 + 什么痛点。</span>
+    </label>
+
+    <div class="row2">
+      <label class="field">
+        <span class="lab">产品</span>
+        <input id="product" placeholder="选填" />
+      </label>
+      <label class="field">
+        <span class="lab">优惠</span>
+        <input id="offer" placeholder="如 首单 9.9 试三包" />
+      </label>
+    </div>
+
+    <div class="row2">
+      <label class="field">
+        <span class="lab">平台</span>
+        <select id="platform">
+          <option value="douyin">抖音</option>
+          <option value="shipinhao">视频号</option>
+          <option value="xhs">小红书</option>
+          <option value="kuaishou">快手</option>
+        </select>
+      </label>
+      <label class="field">
+        <span class="lab">语气</span>
+        <select id="tone">
+          <option>闺蜜</option>
+          <option>老板</option>
+          <option>测评</option>
+        </select>
+      </label>
+    </div>
+
+    <div id="gate" class="gate"></div>
+
+    <button id="go" class="primary">生成口播</button>
+    <p class="fine" id="fine">约 20–40 秒。自检不过会自己改一遍。</p>
+  </section>
+
+  <section class="panel out" id="out">
+    <h2>成片</h2>
+    <div class="empty" id="empty">
+      <div class="clapper"></div>
+      <p class="empty-title">还没开机</p>
+      <p>左边填卖点和人群，这里会出五段稿、三条镜头、一张检查表。</p>
+      <p class="empty-spec">30 秒 · 5 段 · 3 镜头 · A1–A9</p>
+    </div>
+    <div id="result" hidden></div>
+  </section>
+</main>
+
+<div class="toast" id="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>
