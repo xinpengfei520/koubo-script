@@ -147,3 +147,7 @@ node scripts/shots.mjs design     # pack | design | shoot | record | image
 - 只挡明雷。暗示性表述（「用了它三年没感冒」）不是词表能管的。
 - 平台规则会变，L5 导流词建议每季度对一次官方规则。
 - 时长是估算，真人口播有 ±15% 浮动——所以报区间，不报点值。
+
+## 许可证
+
+MIT © 2026 Xin Vance，详见 [LICENSE](LICENSE)。

@@ -147,3 +147,7 @@ Paper, ink, vermilion. A clapperboard, not a SaaS dashboard.
 - Catches explicit violations, not insinuation. "I haven't had a cold in three years" is beyond a word list.
 - Platform rules drift; audit the L5 diversion list quarterly.
 - Timing is an estimate — real speech varies ±15%, which is why we report a range, not a number.
+
+## License
+
+MIT © 2026 Xin Vance — see [LICENSE](LICENSE).
