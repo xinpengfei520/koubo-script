@@ -20,39 +20,40 @@
     <span class="rec-dot" id="recDot" hidden></span>
     <span class="timer" id="timer">00:00</span>
     <span class="spacer"></span>
-    <span class="pill" id="camState">摄像头准备中</span>
+    <span class="pill" id="camState" data-i18n="shoot.cam.waiting">摄像头准备中</span>
   </div>
 
   <div class="countdown" id="countdown" hidden><span id="countNum">3</span></div>
 
   <div class="controls" id="controls">
     <div class="tools">
-      <button data-act="speed-" title="慢一点">− 速</button>
-      <button data-act="speed+" title="快一点">速 +</button>
-      <button data-act="font-" title="字号小">A−</button>
-      <button data-act="font+" title="字号大">A+</button>
-      <button data-act="reset" title="回到开头">重来</button>
-      <button data-act="exit" title="退出">退出</button>
+      <button data-act="speed-" data-i18n="shoot.speeddown">− 速</button>
+      <button data-act="speed+" data-i18n="shoot.speedup">速 +</button>
+      <button data-act="font-" data-i18n="shoot.smaller">A−</button>
+      <button data-act="font+" data-i18n="shoot.bigger">A+</button>
+      <button data-act="reset" data-i18n="shoot.resetbtn">重来</button>
+      <button data-act="exit" data-i18n="shoot.exit">退出</button>
     </div>
     <button class="shoot" id="recBtn" title="开始录制（空格）"><span class="dot"></span></button>
-    <div class="tip" id="tip">空格 开始 / 暂停 · ↑↓ 调速 · Esc 退出</div>
+    <div class="tip" id="tip" data-i18n="shoot.hint">空格 开始 / 暂停 · ↑↓ 调速 · Esc 退出</div>
   </div>
 
   <div class="result" id="result" hidden>
     <div class="result-card">
-      <h2>录制完成</h2>
+      <h2 data-i18n="shoot.done">录制完成</h2>
       <video id="playback" controls playsinline></video>
       <div class="result-ops">
-        <a id="download" class="primary" download>下载视频</a>
-        <button id="again">重拍</button>
-        <button id="closeBtn">回到稿子</button>
+        <a id="download" class="primary" download data-i18n="shoot.download">下载视频</a>
+        <button id="again" data-i18n="shoot.retake">重拍</button>
+        <button id="closeBtn" data-i18n="shoot.back">回到稿子</button>
       </div>
-      <p class="fine">提词文字不会被录进画面，只给你念。</p>
+      <p class="fine" data-i18n="shoot.note">提词文字不会被录进画面，只给你念。</p>
     </div>
   </div>
 
   <div class="err" id="err" hidden></div>
 </div>
+<script src="/i18n.js"></script>
 <script src="/shoot.js"></script>
 </body>
 </html>

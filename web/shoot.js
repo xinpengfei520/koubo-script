@@ -25,7 +25,7 @@ function renderText() {
   const paras = String(payload.text || "").split(/\n+/).map((s) => s.trim()).filter(Boolean);
   scrollEl.innerHTML = paras.length
     ? paras.map((p) => `<p>${p.replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]))}</p>`).join("")
-    : "<p>还没有稿子，回去生成一条再来。</p>";
+    : `<p>${t("shoot.empty")}</p>`;
   scrollEl.style.fontSize = state.font + "px";
 }
 
@@ -79,11 +79,11 @@ async function initCamera() {
       audio: { echoCancellation: true, noiseSuppression: true },
     });
     $("cam").srcObject = state.stream;
-    $("camState").textContent = "摄像头就绪";
+    $("camState").textContent = t("shoot.cam.ready");
     return true;
   } catch (e) {
-    $("camState").textContent = "无摄像头";
-    showErr(`打不开摄像头：${e.name === "NotAllowedError" ? "权限被拒绝，去地址栏左侧允许" : e.message}。没有摄像头也能用提词器，但录不了。`);
+    $("camState").textContent = t("shoot.cam.none");
+    showErr(t("shoot.cam.error", { m: e.name === "NotAllowedError" ? "permission denied" : e.message }));
     return false;
   }
 }
@@ -138,7 +138,7 @@ async function startRecording() {
     try {
       state.recorder = new MediaRecorder(state.stream, mime ? { mimeType: mime, videoBitsPerSecond: 5_000_000 } : undefined);
     } catch {
-      showErr("这个浏览器不支持录制");
+      showErr(t("shoot.unsupported"));
       return;
     }
     state.chunks = [];
@@ -165,7 +165,7 @@ function stopRecording(auto = false) {
   $("recDot").hidden = true;
   $("recBtn").classList.remove("on");
   if (state.recorder && state.recorder.state !== "inactive") state.recorder.stop();
-  if (auto) $("tip").textContent = "稿子念完了，已自动停止";
+  if (auto) $("tip").textContent = t("shoot.ended");
 }
 
 function onStopped() {
@@ -211,15 +211,15 @@ $("recBtn").onclick = () => (state.running ? stopRecording() : startRecording())
 $("again").onclick = () => {
   $("result").hidden = true;
   resetScroll();
-  $("tip").textContent = "空格 开始 / 暂停 · ↑↓ 调速 · Esc 退出";
+  $("tip").textContent = t("shoot.hint");
 };
 $("closeBtn").onclick = exit;
 
 document.querySelectorAll("[data-act]").forEach((btn) => {
   btn.onclick = () => {
     const act = btn.dataset.act;
-    if (act === "speed+") { state.mult = Math.min(2, +(state.mult + 0.15).toFixed(2)); $("tip").textContent = `语速 ×${state.mult.toFixed(2)}`; }
-    if (act === "speed-") { state.mult = Math.max(0.5, +(state.mult - 0.15).toFixed(2)); $("tip").textContent = `语速 ×${state.mult.toFixed(2)}`; }
+    if (act === "speed+") { state.mult = Math.min(2, +(state.mult + 0.15).toFixed(2)); $("tip").textContent = t("shoot.speed", { v: state.mult.toFixed(2) }); }
+    if (act === "speed-") { state.mult = Math.max(0.5, +(state.mult - 0.15).toFixed(2)); $("tip").textContent = t("shoot.speed", { v: state.mult.toFixed(2) }); }
     if (act === "font+") { state.font = Math.min(54, state.font + 3); scrollEl.style.fontSize = state.font + "px"; apply(); }
     if (act === "font-") { state.font = Math.max(22, state.font - 3); scrollEl.style.fontSize = state.font + "px"; apply(); }
     if (act === "reset") { resetScroll(); }
@@ -237,13 +237,14 @@ function exit() {
 window.addEventListener("keydown", (e) => {
   if (e.code === "Space") { e.preventDefault(); state.running ? stopRecording() : startRecording(); }
   if (e.code === "Escape") exit();
-  if (e.code === "ArrowUp") { state.mult = Math.min(2, +(state.mult + 0.1).toFixed(2)); $("tip").textContent = `语速 ×${state.mult.toFixed(2)}`; }
-  if (e.code === "ArrowDown") { state.mult = Math.max(0.5, +(state.mult - 0.1).toFixed(2)); $("tip").textContent = `语速 ×${state.mult.toFixed(2)}`; }
+  if (e.code === "ArrowUp") { state.mult = Math.min(2, +(state.mult + 0.1).toFixed(2)); $("tip").textContent = t("shoot.speed", { v: state.mult.toFixed(2) }); }
+  if (e.code === "ArrowDown") { state.mult = Math.max(0.5, +(state.mult - 0.1).toFixed(2)); $("tip").textContent = t("shoot.speed", { v: state.mult.toFixed(2) }); }
 });
 
 window.addEventListener("resize", apply);
 window.addEventListener("beforeunload", () => { stopCamera(); });
 
+applyI18n();
 renderText();
 resetScroll();
 setTimeout(() => { resetScroll(); }, 60);

@@ -9,6 +9,7 @@ const { gate } = await import("./lib/gate.js");
 const { checkAll, normalizeScript } = await import("./lib/check.js");
 const { buildMessages, buildRepairMessages, buildPolishMessages } = await import("./lib/prompt.js");
 const { analyzeText } = await import("./lib/timing.js");
+const { normalizeLang } = await import("./lib/i18n.js");
 const { chat, isConfigured, LLMError } = await import("./lib/llm.js");
 const { buildFallback } = await import("./lib/fallback.js");
 const { BANNED_META } = await import("./lib/banned.js");
@@ -82,11 +83,11 @@ function readImage(input) {
   return img;
 }
 
-async function polishScript({ segments, shots, input, target, mode, signal }) {
+async function polishScript({ segments, shots, input, target, mode, signal, lang = "zh" }) {
   const t0 = Date.now();
   const before = segments.map((s) => analyzeText(s.text));
   const res = await chat(buildPolishMessages(input, segments, target, mode), { signal, maxTokens: 6000, temperature: 0.7 });
-  const after = normalizeScript(res.parsed);
+  const after = normalizeScript(res.parsed, lang);
 
   const rejected = [];
   const merged = segments.map((s, i) => {
@@ -99,14 +100,14 @@ async function polishScript({ segments, shots, input, target, mode, signal }) {
     return { ...s, text };
   });
 
-  const report = checkAll({ segments: merged, shots, input, meta: { polished: true } });
+  const report = checkAll({ segments: merged, shots, input, meta: { polished: true }, lang });
   return { segments: report.segments, shots: report.shots, report, rejected, ms: Date.now() - t0 };
 }
 
-async function generate(input, signal) {
+async function generate(input, signal, lang = "zh") {
   const t0 = Date.now();
   const image = readImage(input);
-  const g = gate(input);
+  const g = gate(input, lang);
   if (image) {
     g.issues = g.issues.filter((i) => i.field !== "selling_point");
     if (!String(input.selling_point ?? "").trim()) g.issues.push({ level: "info", field: "selling_point", msg: "没写卖点，将从商品图判断（图上没有的不会编）" });
@@ -114,7 +115,7 @@ async function generate(input, signal) {
 
   if (!isConfigured()) {
     const fb = buildFallback(input);
-    const report = checkAll({ segments: fb.segments, shots: fb.shots, input, meta: { source: "fallback" } });
+    const report = checkAll({ segments: fb.segments, shots: fb.shots, input, meta: { source: "fallback" }, lang });
     return { ...fb, report, gate: g, source: "fallback", ms: Date.now() - t0, calls: 0 };
   }
 
@@ -123,19 +124,19 @@ async function generate(input, signal) {
     const first = await chat(buildMessages({ ...input, image }), { signal });
     parsed = first.parsed;
     let calls = 1;
-    let segments = normalizeScript(parsed);
-    let lay = checkAll({ segments, shots: [], input });
+    let segments = normalizeScript(parsed, lang);
+    let lay = checkAll({ segments, shots: [], input, lang });
     let shots = normalizeShots(parsed.shots, lay);
-    let report = checkAll({ segments, shots, input, meta: { source: "llm" } });
+    let report = checkAll({ segments, shots, input, meta: { source: "llm" }, lang });
 
     // 一次定点重写：只把不合格的段落交给模型改
     if (!report.pass && calls < 2) {
       try {
         const fix = await chat(buildRepairMessages(input, { segments, shots }, report), { signal });
-        const s2 = normalizeScript(fix.parsed);
-        const l2 = checkAll({ segments: s2, shots: [], input });
+        const s2 = normalizeScript(fix.parsed, lang);
+        const l2 = checkAll({ segments: s2, shots: [], input, lang });
         const sh2 = normalizeShots(fix.parsed.shots ?? shots, l2);
-        const r2 = checkAll({ segments: s2, shots: sh2, input, meta: { source: "llm", repaired: true } });
+        const r2 = checkAll({ segments: s2, shots: sh2, input, meta: { source: "llm", repaired: true }, lang });
         if (r2.items.filter((i) => !i.ok).length <= report.items.filter((i) => !i.ok).length) {
           segments = s2; shots = sh2; report = r2;
         }
@@ -148,7 +149,7 @@ async function generate(input, signal) {
     return { segments: report.segments, shots, report, gate: g, source: "llm", vision: Boolean(image), ms: Date.now() - t0, calls };
   } catch (e) {
     const fb = buildFallback(input);
-    const report = checkAll({ segments: fb.segments, shots: fb.shots, input, meta: { source: "fallback" } });
+    const report = checkAll({ segments: fb.segments, shots: fb.shots, input, meta: { source: "fallback" }, lang });
     return { ...fb, report, gate: g, source: "fallback", error: e instanceof LLMError ? e.message : String(e), ms: Date.now() - t0, calls: 0 };
   }
 }
@@ -170,16 +171,17 @@ const server = http.createServer(async (req, res) => {
       // 同一时刻只跑一条生成，避免并发把网关打满；客户端断开就中止，别白烧 token
       const ctrl = new AbortController();
       res.on("close", () => { if (!res.writableEnded) ctrl.abort(); });
-      const out = await enqueue(() => generate(input, ctrl.signal));
+      const out = await enqueue(() => generate(input, ctrl.signal, normalizeLang(input.lang)));
       if (ctrl.signal.aborted) return;
       return json(res, 200, out);
     }
 
     if (req.method === "POST" && url.pathname === "/api/polish") {
       const body = await readBody(req);
-      const segments = normalizeScript({ segments: body.segments });
+      const lang = normalizeLang(body.lang);
+      const segments = normalizeScript({ segments: body.segments }, lang);
       const input = body.input ?? {};
-      const lay0 = checkAll({ segments, shots: [], input });
+      const lay0 = checkAll({ segments, shots: [], input, lang });
       const shots = normalizeShots(body.shots ?? [], lay0);
       const target = body.target === "all" ? "all" : String(body.target ?? "all");
       const mode = body.mode === "strong" ? "strong" : "light";
@@ -188,7 +190,7 @@ const server = http.createServer(async (req, res) => {
       const ctrl = new AbortController();
       res.on("close", () => { if (!res.writableEnded) ctrl.abort(); });
       try {
-        const out = await enqueue(() => polishScript({ segments, shots, input, target, mode, signal: ctrl.signal }));
+        const out = await enqueue(() => polishScript({ segments, shots, input, target, mode, signal: ctrl.signal, lang }));
         if (ctrl.signal.aborted) return;
         return json(res, 200, out);
       } catch (e) {
@@ -198,10 +200,11 @@ const server = http.createServer(async (req, res) => {
 
     if (req.method === "POST" && url.pathname === "/api/check") {
       const body = await readBody(req);
-      const segments = normalizeScript({ segments: body.segments });
-      const lay0 = checkAll({ segments, shots: [], input: body.input ?? {} });
+      const lang = normalizeLang(body.lang);
+      const segments = normalizeScript({ segments: body.segments }, lang);
+      const lay0 = checkAll({ segments, shots: [], input: body.input ?? {}, lang });
       const shots = normalizeShots(body.shots ?? [], lay0);
-      const report = checkAll({ segments, shots, input: body.input ?? {} });
+      const report = checkAll({ segments, shots, input: body.input ?? {}, lang });
       return json(res, 200, { segments: report.segments, shots: report.shots, report });
     }
 

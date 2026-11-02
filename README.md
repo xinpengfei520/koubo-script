@@ -4,7 +4,7 @@
 
 Turn one selling point and one audience into a script you can read straight into the camera: five beats with per-line timing, three shot cards, and a compliance report that actually checks something.
 
-Runs locally. No deploy, no build step, no dependencies.
+Runs locally. No deploy, no build step, no dependencies. The interface switches between 中文 and English in the header — the generated script stays Chinese, because that's what the camera reads.
 
 ![The app](docs/images/app.png)
 

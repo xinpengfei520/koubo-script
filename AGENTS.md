@@ -59,6 +59,10 @@ Break these and the product stops making sense.
 6. **One generation at a time** — requests go through `enqueue()`, and the request is
    aborted when the client disconnects. Do not remove this; the gateway falls over.
 7. **`.env` never enters git** — it holds the API key. `.gitignore` covers it.
+8. **Every user-facing string is bilingual** — UI text lives in `web/i18n.js`, server
+   text (check names/details, gate messages, segment labels) in `lib/i18n.js`. A new
+   string means adding the key to **both** `zh` and `en`, or the English UI falls back
+   to Chinese mid-sentence.
 
 ## Conventions
 
