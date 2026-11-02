@@ -11,6 +11,8 @@
 ## 快速开始
 
 ```bash
+git clone https://github.com/xinpengfei520/koubo-script.git
+cd koubo-script
 cp .env.example .env    # 填 LLM_BASE_URL / LLM_MODEL / LLM_API_KEY
 node server.js
 ```

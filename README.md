@@ -11,6 +11,8 @@ Runs locally. No deploy, no build step, no dependencies.
 ## Quick start
 
 ```bash
+git clone https://github.com/xinpengfei520/koubo-script.git
+cd koubo-script
 cp .env.example .env    # fill in LLM_BASE_URL / LLM_MODEL / LLM_API_KEY
 node server.js
 ```
